@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    // Assume 4x5 sparse matrix
+    int inputMatrix[4][5] = {
+        {0, 0, 3, 0, 4},
+        {0, 0, 5, 7, 0},
+        {0, 0, 0, 0, 0},
+        {0, 2, 6, 0, 0}
+    };
+
+    // Use vectors to dynamically store non-zero elements and their indices
+    vector<int> row, col, value;
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 5; j++) {
+            if (inputMatrix[i][j] != 0) {
+                row.push_back(i);
+                col.push_back(j);
+                value.push_back(inputMatrix[i][j]);
+            }
+        }
+    }
+
+    cout << "Row Index: ";
+    for (int a : row) cout << a << ",";
+    cout << "\nColumn Index: ";
+    for (int b : col) cout << b << ",";
+    cout << "\nValues: ";
+    for (int c : value) cout << c << ",";
+    cout << endl;
+
+    return 0;
+}
